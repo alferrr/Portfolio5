@@ -76,7 +76,7 @@ html {
 }
 
 #coverpage .text {
-  height: 70vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,10 +87,12 @@ html {
   color: white;
 }
 
-.text .h1 {
+.mobile {
   display: block;
   margin: 5px 0;
   font-weight: 800;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .scrollbtn {
@@ -1100,8 +1102,36 @@ nav li {
   padding: 0;
 }
 
+#table h1 a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#table h1 a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  color: gold;
+}
+
 /*media queries*/
 
+@media (max-width: 1366px) {
+  #slide2 h3 {
+    opacity: 0;
+  }
+
+  #about p {
+    right: 400px;
+    max-width: 450px;
+  }
+
+  .scrollbtn1 {
+    opacity: 0;
+  }
+}
 /*Tablets (width ≤ 1024px)*/
 @media (max-width: 1024px) {
   #coverpage h1 {
@@ -1110,11 +1140,13 @@ nav li {
   }
 
   #coverpage nav {
-    gap: 20px;
+    gap: 15px;
+    justify-content: center;
+    margin: 0;
   }
 
   #coverpage nav a {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .instructions {
@@ -1194,13 +1226,19 @@ nav li {
     padding: 10px 24px;
   }
 
-  .Me {
-    opacity: 0;
+  #about p {
+    position: absolute;
   }
 }
 
-/*Mobile (width ≤ 768px)*/
+/*phone*/
 @media (max-width: 768px) {
+  .Me {
+    opacity: 0;
+  }
+  .scrollbtn {
+    opacity: 0;
+  }
   header {
     flex-direction: column;
     align-items: center;
@@ -1208,76 +1246,215 @@ nav li {
   }
 
   #coverpage nav {
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-top: 7px;
+    gap: 40px;
+  }
+
+  #coverpage .line {
+    top: 70px;
   }
 
   #coverpage h1 {
     font-size: 24px;
   }
 
+  .dropdown-menu1 {
+    min-width: 250px;
+  }
+
   #coverpage .text {
-    font-size: 18px;
+    height: auto;
+    padding: 100px 20px 80px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeout 10s forwards;
+    opacity: 1;
+  }
+
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .mobile {
+    position: absolute;
+    top: 40%;
+    font-size: 80px;
+    visibility: visible;
+    animation: fadeinUp 2s ease-out forwards;
+  }
+
+  @keyframes fadeinUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .instructions {
+    margin-top: -150px;
     gap: 30px;
+    font-size: 1px;
   }
 
   .instructions img {
-    height: 150px;
+    height: 100px;
   }
 
+  .instructions p {
+    font-size: 15px;
+  }
   #introcontent {
     flex-direction: column;
     gap: 40px;
     padding: 30px;
   }
 
+  #intro p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
   #intro img,
-  #slide1 img,
   #slide2 img,
   #slide3 img,
   #slide4cntnt img {
     height: 200px;
   }
 
+  #slide1 p {
+    font-size: 15px;
+    text-align: justify;
+    line-height: 25px;
+    padding: 0px;
+    margin: -10px;
+  }
+
+  #slide1content img,
+  #slide1content h3 {
+    opacity: 0;
+  }
+
+  #slide2 p {
+    font-size: 15px;
+    line-height: 23px;
+    text-align: justify;
+    margin: 10px;
+    margin-bottom: 10px;
+  }
+
+  #img2 img {
+    opacity: 0;
+    position: absolute;
+  }
   #slide3 p {
+    font-size: 15px;
+    text-align: justify;
     padding: 40px;
-    text-align: center;
+    line-height: 25px;
   }
 
+  #slide3 img,
+  #slide3 h3 {
+    opacity: 0;
+  }
+
+  #slide4cntnt {
+    padding: 0;
+  }
+  #slide4cntnt p {
+    font-size: 15px;
+    line-height: 20px;
+    text-align: justify;
+  }
+
+  #slide5 p {
+    font-size: 15px;
+    line-height: 25px;
+    text-align: justify;
+
+    padding: 48px;
+    padding-top: 100px;
+  }
   #table table {
-    width: 95%;
-    font-size: 12px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
   }
 
+  #table h1 a {
+    text-decoration: underline;
+  }
+
+  #table h1 {
+    position: absolute;
+  }
   #references ul {
     font-size: 18px;
     padding: 50px 20px;
+    line-height: 30px;
+    text-align: justify;
+    pointer-events: none !important;
   }
 
   #about header h1 {
     font-size: 28px;
     margin-left: 0;
+    margin-bottom: -10px;
+    padding-bottom: 0px;
   }
 
   #about nav > ul {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 20px;
   }
 
-  #about p {
+  #about nav ul li a {
+    margin-top: 3px;
+    font-size: 15px;
+  }
+
+  .headerLine1 {
+    position: absolute;
+    top: 30px;
+  }
+
+  .headerLine1 #about p {
     font-size: 14px;
     right: 20px;
     max-width: 90%;
+  }
+
+  #about p {
+    pointer-events: none !important;
   }
 
   .Me img {
     height: 300px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .name {
+    position: absolute;
+    top: 50px;
+    pointer-events: none !important;
   }
 
   .name .name1 {
@@ -1295,6 +1472,7 @@ nav li {
   }
 
   .icons {
+    opacity: 1;
     position: relative;
     flex-direction: row;
     justify-content: center;
@@ -1302,15 +1480,41 @@ nav li {
     top: auto;
     right: auto;
     transform: none;
-    margin-top: 50px;
+    margin-top: 250px;
   }
 
   .icons img {
     width: 50px;
+    position: absolute;
   }
 
+  .fbi {
+    top: -50px;
+    left: 50px;
+  }
+
+  .ig {
+    top: -37px;
+  }
+
+  .gmail {
+    top: -29px;
+    right: -40px;
+  }
+
+  .scrollbtn1 {
+    opacity: 0;
+  }
   .tooltip {
     display: none;
+  }
+
+  #slide2 h3 {
+    opacity: 0;
+  }
+
+  #table {
+    height: 5vh;
   }
 }
 
