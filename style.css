@@ -1443,6 +1443,8 @@ nav li {
 
   #about p {
     pointer-events: none !important;
+    left: 20px;
+    right: 20px;
   }
 
   .Me img {
@@ -1549,5 +1551,29 @@ nav li {
   #about p {
     font-size: 12px;
     text-indent: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  * {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+
+  img,
+  table,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section {
+    overflow-x: hidden;
   }
 }
