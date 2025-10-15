@@ -9,16 +9,34 @@
     <img src="table.png" alt="table" srcset="" />
     <style>
       body {
-        min-height: 100dvh;
+        min-height: 100vh;
         background-color: rgb(63, 63, 63);
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
       }
+
       img {
+        width: 100%;
+        max-width: 800px; /* optional: controls max size on large screens */
+        height: auto;
         border-radius: 10px;
-        height: 700px;
       }
+
+      @media (max-width: 768px) {
+        img {
+          max-width: 100%;
+          border-radius: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        img {
+          border-radius: 6px;
+        }
     </style>
   </body>
 </html>
