@@ -1576,4 +1576,10 @@ nav li {
   section {
     overflow-x: hidden;
   }
+
+  #Eatx {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+  }
 }
